@@ -65,4 +65,45 @@ describe('Ticket 03: Phase 1 Foundation Generator', () => {
     expect(hasBlue).toBe(true)
     expect(hasRed).toBe(true)
   })
+
+  it('Variante A: inclui 4 pilotis, laje intermediária e núcleo de elevador sem clipagem nos carros', () => {
+    const blocks = generateStructure(3, 'A')
+    
+    // 4 pilotis nos cantos
+    const pilotis = blocks.filter((b) => b.id.startsWith('pilotis-'))
+    expect(pilotis.length).toBe(4)
+
+    // Laje intermediária de teto
+    const roofSlab = blocks.find((b) => b.id === 'floor3-roof-slab')
+    expect(roofSlab).toBeDefined()
+
+    // Núcleo de elevador vertical
+    const elevatorShaft = blocks.find((b) => b.id === 'floor3-elevator-shaft')
+    expect(elevatorShaft).toBeDefined()
+
+    // Verificação de vão livre: todos os carros devem estar totalmente abaixo do teto
+    const cars = blocks.filter((b) => b.type === 'car')
+    const roofBottomY = (roofSlab?.position[1] ?? 6.05) - (roofSlab?.size[1] ?? 0.2) / 2
+
+    cars.forEach((car) => {
+      const carTopY = car.position[1] + car.size[1] / 2
+      expect(carTopY).toBeLessThan(roofBottomY)
+    })
+  })
+
+  it('Variante A: na Fase 4 apoia a cobertura perfeitamente sobre a laje intermediária', () => {
+    const blocks = generateStructure(4, 'A')
+    const roofSlab = blocks.find((b) => b.id === 'floor3-roof-slab')
+    const penthouse = blocks.find((b) => b.id === 'floor4-penthouse')
+
+    expect(roofSlab).toBeDefined()
+    expect(penthouse).toBeDefined()
+
+    const roofTopY = (roofSlab?.position[1] ?? 6.05) + (roofSlab?.size[1] ?? 0.2) / 2
+    const penthouseBottomY = (penthouse?.position[1] ?? 7.1) - (penthouse?.size[1] ?? 1.9) / 2
+
+    // A base da cobertura deve estar em ou acima do topo da laje intermediária
+    expect(penthouseBottomY).toBeGreaterThanOrEqual(roofTopY - 0.01)
+  })
 })
+
