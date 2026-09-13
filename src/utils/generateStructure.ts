@@ -409,19 +409,51 @@ function generateVariantA(phase: number, blocks: BlockData[]) {
       }
     )
 
-    // Canos e Fios entrelaçados
+    // Calços estruturais de apoio da tubulação e fiação (eliminam Z-fighting sobre a laje)
+    blocks.push(
+      {
+        id: 'pipe-sleeper-1',
+        position: [-1.8, 8.25, 0],
+        size: [0.35, 0.1, 0.35],
+        color: '#4a5568',
+        type: 'standard',
+      },
+      {
+        id: 'pipe-sleeper-2',
+        position: [-0.3, 8.25, 0],
+        size: [0.35, 0.1, 0.35],
+        color: '#4a5568',
+        type: 'standard',
+      },
+      {
+        id: 'wire-sleeper-1',
+        position: [0, 8.25, -1.8],
+        size: [0.35, 0.1, 0.35],
+        color: '#4a5568',
+        type: 'standard',
+      },
+      {
+        id: 'wire-sleeper-2',
+        position: [0, 8.25, -0.3],
+        size: [0.35, 0.1, 0.35],
+        color: '#4a5568',
+        type: 'standard',
+      }
+    )
+
+    // Canos e Fios entrelaçados (elevados sobre calços, com vão livre sobre a platibanda)
     blocks.push(
       {
         id: 'pipe-water-1',
-        position: [-1, 7.9, 0],
-        size: [3, 0.6, 0.6],
+        position: [-1, 8.55, 0],
+        size: [3, 0.5, 0.5],
         color: '#2b6cb0',
         type: 'pipe',
       },
       {
         id: 'wire-electric-1',
-        position: [0, 8.4, -1],
-        size: [0.6, 0.6, 3],
+        position: [0, 8.55, -1],
+        size: [0.5, 0.5, 3],
         color: '#c53030',
         type: 'wire',
       },
@@ -846,19 +878,19 @@ function generateVariantC(phase: number, blocks: BlockData[]) {
       }
     )
 
-    // Canos e fios (preservando testes)
+    // Canos e fios (elevados para evitar Z-fighting na platibanda)
     blocks.push(
       {
         id: 'pipe-water-1',
-        position: [-1, 8.1, 0],
-        size: [3, 0.6, 0.6],
+        position: [-1, 8.75, 0],
+        size: [3, 0.5, 0.5],
         color: '#2b6cb0',
         type: 'pipe',
       },
       {
         id: 'wire-electric-1',
-        position: [0, 8.6, -1],
-        size: [0.6, 0.6, 3],
+        position: [0, 8.75, -1],
+        size: [0.5, 0.5, 3],
         color: '#c53030',
         type: 'wire',
       },
