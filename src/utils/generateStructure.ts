@@ -44,5 +44,39 @@ export function generateStructure(phase: number): BlockData[] {
     )
   }
 
+  // Phase 3: Overflowing parking floor with cars
+  if (phase >= 3) {
+    blocks.push(
+      {
+        id: 'floor3-slab',
+        position: [0, 4.5, 0],
+        size: [5, 1, 5],
+        color: '#666666',
+        type: 'standard',
+      },
+      {
+        id: 'car-1',
+        position: [-1, 5.4, -1],
+        size: [1.6, 0.8, 1],
+        color: '#e53e3e',
+        type: 'car',
+      },
+      {
+        id: 'car-2',
+        position: [1, 5.4, 0],
+        size: [1.6, 0.8, 1],
+        color: '#3182ce',
+        type: 'car',
+      },
+      {
+        id: 'car-overflow',
+        position: [2.6, 5.4, 1.5],
+        size: [1.6, 0.8, 1],
+        color: '#d69e2e',
+        type: 'car',
+      }
+    )
+  }
+
   return blocks
 }
