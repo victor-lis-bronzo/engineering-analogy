@@ -4,8 +4,8 @@
 
 **Blocked by:** 07
 
-**Status:** ready-for-agent
+**Status:** resolved
 
 ## Acceptance criteria (TDD & Metrics)
-- [ ] Métrica Visual (Binário): Ao atingir `phase === 5`, a fundação torna-se `dynamic` (ou sofre forças), derrubando o prédio com física realista.
-- [ ] Métrica Visual (Binário): Clicar para voltar para a Fase 4 reinicia os blocos perfeitamente em suas posições estáticas de origem, paralisados.
+- [x] Métrica Visual (Binário): Ao atingir `phase === 5`, a fundação torna-se `dynamic` (ou sofre forças), derrubando o prédio com física realista.
+- [x] Métrica Visual (Binário): Clicar para voltar para a Fase 4 reinicia os blocos perfeitamente em suas posições estáticas de origem, paralisados.
