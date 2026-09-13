@@ -22,3 +22,4 @@
 - [x] `issues/11-floors-3-4-structural-connection.md` (resolved)
 - [x] `issues/12-rooftop-mep-z-fighting.md` (resolved)
 - [x] `issues/13-pipe-wire-overpass.md` (resolved)
+- [x] `issues/14-readme-documentation.md` (resolved)
