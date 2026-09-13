@@ -26,10 +26,11 @@ export default function App() {
         data-testid="canvas-container"
         className={`w-full ${isRetrospective ? 'md:w-[55%]' : 'md:w-[70%]'} h-1/2 md:h-full relative transition-all duration-300`}
       >
-        <Canvas camera={{ position: [10, 10, 10], fov: 50 }}>
-          <color attach="background" args={['#1a202c']} />
-          <ambientLight intensity={0.5} />
-          <directionalLight position={[10, 10, 5]} intensity={1} castShadow />
+        <Canvas camera={{ position: [11, 10, 11], fov: 45 }}>
+          <color attach="background" args={['#171923']} />
+          <ambientLight intensity={0.7} />
+          <directionalLight position={[12, 16, 8]} intensity={1.2} castShadow />
+          <directionalLight position={[-10, 10, -6]} intensity={0.4} />
           
           <Suspense fallback={null}>
             <Physics paused={currentPhase < 5}>
@@ -37,7 +38,13 @@ export default function App() {
             </Physics>
           </Suspense>
 
-          <OrbitControls makeDefault />
+          <OrbitControls 
+            makeDefault 
+            target={[0, 3.5, 0]} 
+            maxPolarAngle={Math.PI / 2 - 0.05}
+            minDistance={5}
+            maxDistance={35}
+          />
         </Canvas>
       </div>
     </div>
