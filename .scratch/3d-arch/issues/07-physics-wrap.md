@@ -4,8 +4,8 @@
 
 **Blocked by:** 06
 
-**Status:** ready-for-agent
+**Status:** resolved
 
 ## Acceptance criteria (TDD & Metrics)
-- [ ] Métrica Visual (Binário): O projeto roda com o Provider `<Physics>` encapsulando a estrutura, sem crashes.
-- [ ] Métrica (Binário): Blocos rodam como `<RigidBody type="fixed">`. O prédio continua estático visualmente igual ao ticket 06.
+- [x] Métrica Visual (Binário): O projeto roda com o Provider `<Physics>` encapsulando a estrutura, sem crashes.
+- [x] Métrica (Binário): Blocos rodam como `<RigidBody type="fixed">`. O prédio continua estático visualmente igual ao ticket 06.
