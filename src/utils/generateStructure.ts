@@ -427,33 +427,33 @@ function generateVariantA(phase: number, blocks: BlockData[]) {
       },
       {
         id: 'wire-sleeper-1',
-        position: [0, 8.25, -1.8],
-        size: [0.35, 0.1, 0.35],
+        position: [0, 8.56, -1.8],
+        size: [0.25, 0.72, 0.25],
         color: '#4a5568',
         type: 'standard',
       },
       {
         id: 'wire-sleeper-2',
-        position: [0, 8.25, -0.3],
-        size: [0.35, 0.1, 0.35],
+        position: [0, 8.56, -0.4],
+        size: [0.25, 0.72, 0.25],
         color: '#4a5568',
         type: 'standard',
       }
     )
 
-    // Canos e Fios entrelaçados (elevados sobre calços, com vão livre sobre a platibanda)
+    // Canos e Fios entrelaçados (cruzamento em desnível: fio vermelho passa sobre o cano azul)
     blocks.push(
       {
         id: 'pipe-water-1',
-        position: [-1, 8.55, 0],
-        size: [3, 0.5, 0.5],
+        position: [-1, 8.50, 0],
+        size: [3, 0.40, 0.40],
         color: '#2b6cb0',
         type: 'pipe',
       },
       {
         id: 'wire-electric-1',
-        position: [0, 8.55, -1],
-        size: [0.5, 0.5, 3],
+        position: [0, 9.10, -1],
+        size: [0.35, 0.35, 3],
         color: '#c53030',
         type: 'wire',
       },
@@ -467,7 +467,7 @@ function generateVariantA(phase: number, blocks: BlockData[]) {
       {
         id: 'wire-electric-2',
         position: [-0.5, 9.1, 0.5],
-        size: [2, 0.5, 0.5],
+        size: [2, 0.35, 0.35],
         color: '#e53e3e',
         type: 'wire',
       },
@@ -878,19 +878,19 @@ function generateVariantC(phase: number, blocks: BlockData[]) {
       }
     )
 
-    // Canos e fios (elevados para evitar Z-fighting na platibanda)
+    // Canos e fios (elevados com cruzamento em desnível)
     blocks.push(
       {
         id: 'pipe-water-1',
-        position: [-1, 8.75, 0],
-        size: [3, 0.5, 0.5],
+        position: [-1, 8.70, 0],
+        size: [3, 0.40, 0.40],
         color: '#2b6cb0',
         type: 'pipe',
       },
       {
         id: 'wire-electric-1',
-        position: [0, 8.75, -1],
-        size: [0.5, 0.5, 3],
+        position: [0, 9.30, -1],
+        size: [0.35, 0.35, 3],
         color: '#c53030',
         type: 'wire',
       },
