@@ -4,9 +4,9 @@
 
 **Blocked by:** 03
 
-**Status:** ready-for-agent
+**Status:** resolved
 
 ## Acceptance criteria (TDD & Metrics)
-- [ ] Test (Binário): `generateStructure(2)` retorna os blocos da Fase 1 + blocos da Fase 2.
-- [ ] Test (Binário): O conjunto de dados da Fase 2 explicitamente exclui o bloco central (buraco do elevador).
-- [ ] Métrica Visual (Binário): Avançar para a Fase 2 renderiza o novo andar e o buraco é visível rodando a câmera.
+- [x] Test (Binário): `generateStructure(2)` retorna os blocos da Fase 1 + blocos da Fase 2.
+- [x] Test (Binário): O conjunto de dados da Fase 2 explicitamente exclui o bloco central (buraco do elevador).
+- [x] Métrica Visual (Binário): Avançar para a Fase 2 renderiza o novo andar e o buraco é visível rodando a câmera.

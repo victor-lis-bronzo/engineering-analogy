@@ -16,4 +16,23 @@ describe('Ticket 03: Phase 1 Foundation Generator', () => {
     const blocks = generateStructure(0)
     expect(blocks).toEqual([])
   })
+
+  it('retorna os blocos da Fase 1 + blocos da Fase 2 para generateStructure(2)', () => {
+    const blocks = generateStructure(2)
+    const foundation = blocks.filter((b) => b.type === 'foundation')
+    const floor2 = blocks.filter((b) => b.type === 'elevator-floor')
+
+    expect(foundation.length).toBeGreaterThan(0)
+    expect(floor2.length).toBeGreaterThan(0)
+    expect(blocks.length).toBe(foundation.length + floor2.length)
+  })
+
+  it('exclui explicitamente o bloco central do segundo andar (buraco do elevador)', () => {
+    const blocks = generateStructure(2)
+    const floor2 = blocks.filter((b) => b.type === 'elevator-floor')
+
+    // Nenhum bloco do segundo andar está exatamente no centro [0, y, 0]
+    const centerBlock = floor2.find((b) => b.position[0] === 0 && b.position[2] === 0)
+    expect(centerBlock).toBeUndefined()
+  })
 })
