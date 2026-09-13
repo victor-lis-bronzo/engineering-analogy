@@ -2,27 +2,29 @@ import { Canvas } from '@react-three/fiber'
 import { OrbitControls } from '@react-three/drei'
 import { NUI } from './components/NUI'
 import { Structure } from './components/Structure'
+import { Retrospective } from './components/Retrospective'
 import { Suspense } from 'react'
 import { Physics } from '@react-three/rapier'
-import { useSimulationStore } from './store'
+import { usePhaseStore } from './store'
 
 export default function App() {
-  const currentPhase = useSimulationStore((state) => state.currentPhase)
+  const currentPhase = usePhaseStore((state) => state.phase)
+  const isRetrospective = currentPhase === 6
 
   return (
     <div className="flex flex-col-reverse md:flex-row w-full h-screen bg-gray-900 text-white">
-      {/* Narrative UI (NUI) */}
+      {/* Narrative UI (NUI) / Retrospective */}
       <div 
         data-testid="nui-container"
-        className="w-full md:w-[30%] h-1/3 md:h-full z-10 bg-gray-800 shadow-xl overflow-y-auto"
+        className={`w-full ${isRetrospective ? 'md:w-[45%]' : 'md:w-[30%]'} h-1/2 md:h-full z-10 bg-gray-800 shadow-xl overflow-y-auto transition-all duration-300`}
       >
-        <NUI />
+        {isRetrospective ? <Retrospective /> : <NUI />}
       </div>
 
       {/* 3D Canvas */}
       <div 
         data-testid="canvas-container"
-        className="w-full md:w-[70%] h-2/3 md:h-full relative"
+        className={`w-full ${isRetrospective ? 'md:w-[55%]' : 'md:w-[70%]'} h-1/2 md:h-full relative transition-all duration-300`}
       >
         <Canvas camera={{ position: [10, 10, 10], fov: 50 }}>
           <color attach="background" args={['#1a202c']} />
