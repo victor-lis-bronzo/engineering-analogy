@@ -126,6 +126,26 @@ describe('Ticket 03: Phase 1 Foundation Generator', () => {
     expect(pipeBottomY).toBeGreaterThan(parapetTopY)
     expect(wireBottomY).toBeGreaterThan(parapetTopY)
   })
+
+  it('Anti-Z-Fighting Cruzamento: fiação vermelha passa por cima do cano azul com vão livre vertical', () => {
+    const blocks = generateStructure(4, 'A')
+    const pipeWater = blocks.find((b) => b.id === 'pipe-water-1')
+    const wireElectric = blocks.find((b) => b.id === 'wire-electric-1')
+    const wireSleepers = blocks.filter((b) => b.id.startsWith('wire-sleeper-'))
+
+    expect(pipeWater).toBeDefined()
+    expect(wireElectric).toBeDefined()
+    expect(wireSleepers.length).toBeGreaterThanOrEqual(2)
+
+    const pipeTopY = (pipeWater?.position[1] ?? 8.5) + (pipeWater?.size[1] ?? 0.4) / 2
+    const wireBottomY = (wireElectric?.position[1] ?? 9.1) - (wireElectric?.size[1] ?? 0.35) / 2
+
+    // No ponto de cruzamento (X=0, Z=0), o topo do cano de água deve estar abaixo do fundo da fiação
+    expect(pipeTopY).toBeLessThan(wireBottomY)
+    // Vão livre de pelo menos 15cm
+    expect(wireBottomY - pipeTopY).toBeGreaterThanOrEqual(0.15)
+  })
 })
+
 
 
