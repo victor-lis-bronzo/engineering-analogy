@@ -4,8 +4,8 @@
 
 **Blocked by:** 05
 
-**Status:** ready-for-agent
+**Status:** resolved
 
 ## Acceptance criteria (TDD & Metrics)
-- [ ] Test (Binário): `generateStructure(4)` adiciona os blocos da Fase 4.
-- [ ] Métrica Visual (Binário): Cores distintas (ex: Vermelho e Azul) são visivelmente intercaladas no topo do prédio.
+- [x] Test (Binário): `generateStructure(4)` adiciona os blocos da Fase 4.
+- [x] Métrica Visual (Binário): Cores distintas (ex: Vermelho e Azul) são visivelmente intercaladas no topo do prédio.

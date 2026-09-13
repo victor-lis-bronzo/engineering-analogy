@@ -50,4 +50,19 @@ describe('Ticket 03: Phase 1 Foundation Generator', () => {
     const overflowCar = cars.find((c) => Math.abs(c.position[0]) > 2.5)
     expect(overflowCar).toBeDefined()
   })
+
+  it('retorna os blocos da Fase 4 com canos (azul) e fios (vermelho) intercalados', () => {
+    const blocks = generateStructure(4)
+    const pipes = blocks.filter((b) => b.type === 'pipe')
+    const wires = blocks.filter((b) => b.type === 'wire')
+
+    expect(pipes.length).toBeGreaterThan(0)
+    expect(wires.length).toBeGreaterThan(0)
+
+    // Cores distintas presentes no topo
+    const hasBlue = pipes.some((p) => p.color.includes('b0') || p.color.includes('ce'))
+    const hasRed = wires.some((w) => w.color.includes('30') || w.color.includes('3e'))
+    expect(hasBlue).toBe(true)
+    expect(hasRed).toBe(true)
+  })
 })
