@@ -78,5 +78,39 @@ export function generateStructure(phase: number): BlockData[] {
     )
   }
 
+  // Phase 4: Tangled pipes (water) and wires (electric)
+  if (phase >= 4) {
+    blocks.push(
+      {
+        id: 'pipe-water-1',
+        position: [-1, 7, 0],
+        size: [3, 0.6, 0.6],
+        color: '#2b6cb0',
+        type: 'pipe',
+      },
+      {
+        id: 'wire-electric-1',
+        position: [0, 7.5, -1],
+        size: [0.6, 0.6, 3],
+        color: '#c53030',
+        type: 'wire',
+      },
+      {
+        id: 'pipe-water-2',
+        position: [1, 8, 1],
+        size: [0.6, 1.8, 0.6],
+        color: '#3182ce',
+        type: 'pipe',
+      },
+      {
+        id: 'wire-electric-2',
+        position: [-0.5, 8.2, 0.5],
+        size: [2, 0.5, 0.5],
+        color: '#e53e3e',
+        type: 'wire',
+      }
+    )
+  }
+
   return blocks
 }
