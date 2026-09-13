@@ -4,10 +4,10 @@
 
 **Blocked by:** 01
 
-**Status:** ready-for-agent
+**Status:** resolved
 
 ## Acceptance criteria (TDD & Metrics)
-- [ ] Métrica (Binário): `<Canvas>` monta sem erros de WebGL.
-- [ ] Métrica (Binário): `OrbitControls` funcionais (é possível arrastar e girar a câmera).
-- [ ] Métrica (Binário): Um plano (chão) e iluminação básica estão visíveis.
-- [ ] Métrica Visual (Binário): Layout da tela claramente dividido entre UI (esquerda/cima) e 3D (direita/baixo) usando Tailwind.
+- [x] Métrica (Binário): `<Canvas>` monta sem erros de WebGL.
+- [x] Métrica (Binário): `OrbitControls` funcionais (é possível arrastar e girar a câmera).
+- [x] Métrica (Binário): Um plano (chão) e iluminação básica estão visíveis.
+- [x] Métrica Visual (Binário): Layout da tela claramente dividido entre UI (esquerda/cima) e 3D (direita/baixo) usando Tailwind.
