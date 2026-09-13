@@ -1,7 +1,7 @@
 import React from 'react'
 import { RigidBody } from '@react-three/rapier'
 import { usePhaseStore } from '../store'
-import { generateStructure, BlockData } from '../utils/generateStructure'
+import { generateStructure, BlockData, VariantType } from '../utils/generateStructure'
 
 export const Block: React.FC<{ data: BlockData; isDynamic?: boolean }> = ({ data, isDynamic = false }) => {
   const isCylinder = data.shape === 'cylinder'
@@ -44,8 +44,8 @@ export const Floor: React.FC = () => {
   )
 }
 
-const StructureContent: React.FC<{ phase: number }> = ({ phase }) => {
-  const blocks = generateStructure(phase)
+const StructureContent: React.FC<{ phase: number; variant: VariantType }> = ({ phase, variant }) => {
+  const blocks = generateStructure(phase, variant)
   const isDynamic = phase === 5
 
   return (
@@ -64,6 +64,7 @@ const StructureContent: React.FC<{ phase: number }> = ({ phase }) => {
 
 export const Structure: React.FC = () => {
   const currentPhase = usePhaseStore((state) => state.phase)
+  const variant = usePhaseStore((state) => state.variant)
 
-  return <StructureContent key={currentPhase} phase={currentPhase} />
+  return <StructureContent key={`${currentPhase}-${variant}`} phase={currentPhase} variant={variant} />
 }

@@ -3,16 +3,20 @@ import { OrbitControls } from '@react-three/drei'
 import { NUI } from './components/NUI'
 import { Structure } from './components/Structure'
 import { Retrospective } from './components/Retrospective'
+import { PrototypeSwitcher } from './components/PrototypeSwitcher'
 import { Suspense } from 'react'
 import { Physics } from '@react-three/rapier'
 import { usePhaseStore } from './store'
 
 export default function App() {
   const currentPhase = usePhaseStore((state) => state.phase)
+  const variant = usePhaseStore((state) => state.variant)
+  const setVariant = usePhaseStore((state) => state.setVariant)
   const isRetrospective = currentPhase === 6
+  const showPrototype = typeof window !== 'undefined' && new URLSearchParams(window.location.search).get('prototype') === 'true'
 
   return (
-    <div className="flex flex-col-reverse md:flex-row w-full h-screen bg-gray-900 text-white">
+    <div className="flex flex-col-reverse md:flex-row w-full h-screen bg-gray-900 text-white relative">
       {/* Narrative UI (NUI) / Retrospective */}
       <div 
         data-testid="nui-container"
@@ -47,6 +51,9 @@ export default function App() {
           />
         </Canvas>
       </div>
+
+      {/* Floating Prototype Switcher */}
+      {showPrototype && <PrototypeSwitcher currentVariant={variant} onSelectVariant={setVariant} />}
     </div>
   )
 }
