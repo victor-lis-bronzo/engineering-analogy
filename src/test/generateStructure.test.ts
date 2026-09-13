@@ -35,4 +35,19 @@ describe('Ticket 03: Phase 1 Foundation Generator', () => {
     const centerBlock = floor2.find((b) => b.position[0] === 0 && b.position[2] === 0)
     expect(centerBlock).toBeUndefined()
   })
+
+  it('retorna todas as fases anteriores + blocos da Fase 3 com marcadores de tipo "carro"', () => {
+    const blocks = generateStructure(3)
+    const cars = blocks.filter((b) => b.type === 'car')
+    const foundation = blocks.filter((b) => b.type === 'foundation')
+    const floor2 = blocks.filter((b) => b.type === 'elevator-floor')
+
+    expect(foundation.length).toBeGreaterThan(0)
+    expect(floor2.length).toBeGreaterThan(0)
+    expect(cars.length).toBeGreaterThan(0)
+
+    // Verifica bloco que excede a borda da base (base tem x: [-2.5, 2.5])
+    const overflowCar = cars.find((c) => Math.abs(c.position[0]) > 2.5)
+    expect(overflowCar).toBeDefined()
+  })
 })
