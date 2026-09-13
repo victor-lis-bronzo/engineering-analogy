@@ -4,8 +4,8 @@
 
 **Blocked by:** 09
 
-**Status:** ready-for-agent
+**Status:** resolved
 
 ## Acceptance criteria (TDD & Metrics)
-- [ ] Métrica Visual (Binário): Ao atingir a Fase 6, a sidebar padrão é ocultada ou substituída por um painel largo de conclusão.
-- [ ] Métrica Visual (Binário): O texto relaciona explicitamente: Dívida técnica (F1), OCP (F2), SRP/Liskov (F3), Acoplamento/DIP (F4) e Colapso Sistêmico (F5).
+- [x] Métrica Visual (Binário): Ao atingir a Fase 6, a sidebar padrão é ocultada ou substituída por um painel largo de conclusão.
+- [x] Métrica Visual (Binário): O texto relaciona explicitamente: Dívida técnica (F1), OCP (F2), SRP/Liskov (F3), Acoplamento/DIP (F4) e Colapso Sistêmico (F5).
