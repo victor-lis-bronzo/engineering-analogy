@@ -29,6 +29,12 @@ Uma aplicação web interativa em 3D estilo voxel. A aplicação conta a histór
 - **Styling**: TailwindCSS para a interface 2D lateral.
 - **Estado**: Um simples hook baseado em Reducer ou Zustand para controlar o `currentPhase` (0 a 6).
 - **Procedural Generation**: Uma função determinística receberá o `currentPhase` e retornará os `Blocks` que devem ser renderizados. A física só será ativada via props dinâmicas do Rapier no momento do colapso.
+- **Transição Arquitetônica Andares 3 e 4 (Variante A)**:
+  - 3º Andar (Estacionamento): 4 pilotis de concreto nos cantos (`0.4 x 1.3 x 0.4`), muretas de proteção perimetral, laje intermediária de teto em Y = 6.05 (pé-direito livre de 1.35m sobre os carros) e shaft de continuidade do elevador do 2º andar.
+  - 4º Andar (Cobertura Residencial): Volume habitacional assentado sobre a laje intermediária, com janelas panorâmicas reflexivas, platibanda superior, caixa d'água cilíndrica e mastro de antena.
+- **Instalações Técnicas Prediais (MEP) e Anti-Z-Fighting**:
+  - Calços de apoio estruturais (*pipe sleepers*) elevando a tubulação azul a Y = 8.50 (base Y = 8.30) para garantir não-coplanaridade e zero Z-fighting com a platibanda do telhado (Y_top = 8.20).
+  - Cruzamento em desnível (*Overpass*): A fiação elétrica vermelha cruza perpendicularmente sobre a tubulação hidráulica a Y = 9.10 apoiada em cavaletes técnicos verticais, com vão livre de ar de mais de 20cm (zero colisão física e zero Z-fighting).
 
 ## Testing Decisions
 
