@@ -8,6 +8,8 @@ export const Block: React.FC<{ data: BlockData; isDynamic?: boolean }> = ({ data
     <RigidBody 
       colliders="cuboid" 
       type={isDynamic ? 'dynamic' : 'fixed'}
+      linearDamping={isDynamic ? 0.2 : 0}
+      restitution={isDynamic ? 0.3 : 0}
       data-testid={`rigidbody-${data.id}`}
     >
       <mesh position={data.position}>
