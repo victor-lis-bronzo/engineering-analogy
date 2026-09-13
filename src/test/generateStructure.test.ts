@@ -105,5 +105,27 @@ describe('Ticket 03: Phase 1 Foundation Generator', () => {
     // A base da cobertura deve estar em ou acima do topo da laje intermediária
     expect(penthouseBottomY).toBeGreaterThanOrEqual(roofTopY - 0.01)
   })
+
+  it('Anti-Z-Fighting: calços de apoio elevam o cano azul e a fiação vermelha acima da platibanda', () => {
+    const blocks = generateStructure(4, 'A')
+    const parapet = blocks.find((b) => b.id === 'floor4-roof-parapet')
+    const pipeWater = blocks.find((b) => b.id === 'pipe-water-1')
+    const wireElectric = blocks.find((b) => b.id === 'wire-electric-1')
+    const pipeSleepers = blocks.filter((b) => b.id.startsWith('pipe-sleeper-'))
+
+    expect(parapet).toBeDefined()
+    expect(pipeWater).toBeDefined()
+    expect(wireElectric).toBeDefined()
+    expect(pipeSleepers.length).toBeGreaterThanOrEqual(2)
+
+    const parapetTopY = (parapet?.position[1] ?? 8.1) + (parapet?.size[1] ?? 0.2) / 2
+    const pipeBottomY = (pipeWater?.position[1] ?? 8.55) - (pipeWater?.size[1] ?? 0.5) / 2
+    const wireBottomY = (wireElectric?.position[1] ?? 8.55) - (wireElectric?.size[1] ?? 0.5) / 2
+
+    // O fundo do cano e dos fios deve estar estritamente elevado acima do topo da platibanda (sem coplanaridade)
+    expect(pipeBottomY).toBeGreaterThan(parapetTopY)
+    expect(wireBottomY).toBeGreaterThan(parapetTopY)
+  })
 })
+
 
